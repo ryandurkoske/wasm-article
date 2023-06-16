@@ -29,7 +29,7 @@
                 "${workspaceFolder}/include/*",
                 "${workspaceFolder}/lib/wlibc/include/*",
                 "${workspaceFolder}/lib/uWebsockets/*",
-                "${workspaceFolder}/lib/uSockets/src/**"
+                "${workspaceFolder}/lib/uSockets/include/**"
             ],
             "defines": [
                 "TARGET_WASM",
