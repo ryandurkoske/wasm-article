@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "Windows",
             "includePath": [
                 "${workspaceFolder}/include/*",
                 "${workspaceFolder}/lib/wlibc/include/*",
@@ -20,7 +20,7 @@
             "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang.exe",
             "cStandard": "c17",
-            "cppStandard": "c++23",
+            "cppStandard": "c++20",
             "intelliSenseMode": "windows-clang-x64"
         },
         {
@@ -43,7 +43,7 @@
             "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
-            "cppStandard": "c++23",
+            "cppStandard": "c++20",
             "intelliSenseMode": "linux-clang-x64"
         }
     ],
