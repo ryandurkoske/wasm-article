@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "wasm-article-react"
+		},
+		{
+			"path": "wasm-article-clib"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdint.h": "c",
+			"assert.h": "c",
+			"stdio.h": "c",
+			"cstdint": "cpp",
+			"iostream": "cpp",
+			"string_view": "cpp"
+		}
+	}
+}
