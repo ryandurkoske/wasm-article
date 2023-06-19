@@ -35,7 +35,8 @@ MDO_FLAGS := -mbulk-memory# -msimd128  -mexception-handling
 BUILD_DIR := builds/wasm
 
 #set the executable output
-TARGET := ../wasm-article-react/public/rolling_total.wasm
+TARGET_DIR := ../wasm-article-react/public
+TARGET := $(TARGET_DIR)/rolling_total.wasm
 
 ###################################################
 ### YOU DON'T NEED TO MODIFY ANYTHING PAST THIS ###
@@ -46,14 +47,14 @@ $(info === WASM TARGET ===)
 
 -include env.mk
 
-BUILD_DIRS := $(addprefix $(BUILD_DIR)/, $(SRC_DIRS))
+REQUIRED_DIRS := $(addprefix $(BUILD_DIR)/, $(SRC_DIRS))
 
 .PHONY: wasm clean
 
-wasm: $(BUILD_DIRS) $(TARGET)
+wasm: $(REQUIRED_DIRS) $(TARGET)
 
 #create any missing directories necessary for build output
-$(BUILD_DIRS): %:
+$(REQUIRED_DIRS): %:
 	$(MKDIR_P)
 
 LD := wasm-ld

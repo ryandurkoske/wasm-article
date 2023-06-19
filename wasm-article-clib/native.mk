@@ -39,7 +39,8 @@ CXX_FLAGS :=
 BUILD_DIR := builds/native
 
 #set the executable output
-TARGET := bin/program.exe
+TARGET_DIR := bin
+TARGET := $(TARGET_DIR)/program.exe
 
 ###################################################
 ### YOU DON'T NEED TO MODIFY ANYTHING PAST THIS ###
@@ -50,14 +51,14 @@ $(info === NATIVE TARGET ===)
 
 -include env.mk
 
-BUILD_DIRS := $(addprefix $(BUILD_DIR)/, $(SRC_DIRS))
+REQUIRED_DIRS := $(addprefix $(BUILD_DIR)/, $(SRC_DIRS)) $(TARGET_DIR)
 
 .PHONY: native clean
 
-native: $(BUILD_DIRS) $(TARGET)
+native: $(REQUIRED_DIRS) $(TARGET)
 
 #create any missing directories necessary for build output
-$(BUILD_DIRS): %:
+$(REQUIRED_DIRS): %:
 	$(MKDIR_P)
 
 LD := clang++ -std=c++20
