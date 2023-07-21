@@ -1,0 +1,33 @@
+{
+	"configurations": [
+
+		{
+			"name": "Server",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/bin/program.exe",
+			"MIMode": "gdb",
+			"linux": {
+				"cwd": "${workspaceFolder}",
+				"miDebuggerPath": "/usr/bin/gdb"
+			},
+			"preLaunchTask": {
+				"task": "make all",
+				"type": "npm",
+				"script": "all",
+			},
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				},
+			]
+		}
+	]
+}

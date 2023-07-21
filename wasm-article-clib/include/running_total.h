@@ -1,7 +1,7 @@
 #pragma once
 
-#define CHUNK_SIZE 8
-#define RNG_RANGE 10
+#define CHUNK_SIZE 16384
+#define RNG_RANGE 20
 
 #include <stdint.h>
 #include "rng.h"

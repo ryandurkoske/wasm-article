@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"all": "make",
+		"native": "make native",
+		"wasm": "make wasm",
+		"clean": "make clean",
+		"clean native": "make clean_native",
+		"clean wasm": "make clean_wasm"
+	}
+}

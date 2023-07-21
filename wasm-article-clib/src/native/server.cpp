@@ -65,7 +65,7 @@ int main() {
             /* Open event here, you may access ws->getUserData() which points to a PerSocketData struct.
              * Here we simply validate that indeed, something == 13 as set in upgrade handler. */
 
-            std::cout << "Running Total is: " << static_cast<PerSocketData *>(ws->getUserData())->running_total << std::endl;
+            //std::cout << "Running Total is: " << static_cast<PerSocketData *>(ws->getUserData())->running_total << std::endl;
         },
         .message = [](auto *ws, std::string_view message, uWS::OpCode opCode) {
 			if(opCode==uWS::OpCode::BINARY){
@@ -75,6 +75,9 @@ int main() {
 					int32_t sum = *(int32_t*)message.data();
 					int32_t total = data->running_total;
 					
+					//std::cout << "Client sum: " << sum << std::endl;
+					//std::cout << "Server total: " << total << std::endl;
+
 					if(sum == total){
 						
 						int32_t new_sum = generate_chunk(data->chunk, data->rng);
@@ -82,13 +85,14 @@ int main() {
 						
 						ws->send(std::string_view((char*)data->chunk, sizeof(int32_t)*CHUNK_SIZE));
 
-						std::cout << "Running Total is: " << data->running_total << std::endl;
+						//std::cout << "Running Total is: " << data->running_total << std::endl;
 
 					}else{
 						ws->end(1000, "Running total desync.");
 					}
 
 				}else{
+					std::cout << "Client sum: " << message.length() << std::endl;
 					ws->end(4003, "Bad packet (wrong size).");
 				}
 			}else{

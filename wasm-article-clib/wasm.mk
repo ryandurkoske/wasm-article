@@ -29,7 +29,7 @@ WARN_LVL := -Wall
 CC_FLAGS :=
 
 #machine-dependent options (aka wasm options) NOTE: building with -msimd128 breaks safari compatability as of my last test and -mexception-handling breaks most browsers
-MDO_FLAGS := -mbulk-memory# -msimd128  -mexception-handling
+MDO_FLAGS := -mbulk-memory -msimd128  #-mexception-handling
 
 #set the root folder for intermediate build step output (.o and .d files)
 BUILD_DIR := builds/wasm

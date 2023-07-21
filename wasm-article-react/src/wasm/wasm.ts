@@ -1,6 +1,6 @@
 import { printf_imports } from "./imports/printf";
 
-
+//1 unit = 64 KiB = page size
 const memory = new WebAssembly.Memory({
 	initial: 2,
 	maximum: 16384 //1 GiB
@@ -46,6 +46,7 @@ class WasmClass {
 
 		this.malloc = exp.malloc;
 		this.free = exp.free;
+
 		this.compute_sum = exp.compute_sum;
 	}
 
@@ -74,7 +75,6 @@ class WasmClass {
 		return new Int16Array(this._rawmem.buffer, pointer as number, len);
 	}
 	i32(pointer:Wasm.i32_addr, len:number){
-		console.log(pointer)
 		return new Int32Array(this._rawmem.buffer, pointer as number, len);
 	}
 	i64(pointer:Wasm.i64_addr, len:number){
