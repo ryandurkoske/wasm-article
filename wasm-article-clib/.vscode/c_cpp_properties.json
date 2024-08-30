@@ -10,12 +10,19 @@
             ],
             "defines": [
                 "TARGET_WASM",
-                "TARGET_NATIVE",
-                "_DEBUG",
+                "TARGET_SERVER",
+                
+				"ENV_PTR32",
+				"NULL",
+				"EXPORT(name)",
+				"IMPORT(name)",
+
+                "UWS_NO_ZLIB",
+                "UWS_MOCK_ZLIB",
+
+				"_DEBUG",
                 "UNICODE",
-                "_UNICODE",
-				"UWS_NO_ZLIB",
-                "UWS_MOCK_ZLIB"
+                "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang.exe",
@@ -33,12 +40,19 @@
             ],
             "defines": [
                 "TARGET_WASM",
-                "TARGET_NATIVE",
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE",
+                "TARGET_SERVER",
+                
+				"ENV_PTR32",
+				"ENV_PTR32",
+				"EXPORT(name)",
+				"IMPORT(name)",
+
                 "UWS_NO_ZLIB",
-                "UWS_MOCK_ZLIB"
+                "UWS_MOCK_ZLIB",
+
+				"_DEBUG",
+                "UNICODE",
+                "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "/usr/bin/clang",

@@ -1,27 +1,31 @@
+# This is the main makefile.  It stitches everything together. You should not need to call ur targets makefiles directly.
 
-# This is the main makefile.  It stitches everything together.  You do NOT need to modify it in order to add project specific modifications to your build pipeline, instead modify native.mk and wasm.mk
+# You do NOT need to modify it in order to add project specific modifications 
+# to your build pipeline, instead modify native.mk and wasm.mk
+
+# Do modify this if you are adding a NEW target
 
 MK = @make --no-print-directory
 
-.PHONY: all native wasm
-.PHONY: clean clean_native clean_wasm
+.PHONY: all server wasm
+.PHONY: clean server_clean wasm_clean
 
 all:
-	$(MK) -f native.mk
-	$(MK) -f wasm.mk
+	$(MK) -s -f ./targets/server.mk
+	$(MK) -s -f ./targets/wasm.mk
 
 clean:
-	$(MK) -f native.mk clean
-	$(MK) -f wasm.mk clean
+	$(MK) -f ./targets/server.mk clean
+	$(MK) -f ./targets/wasm.mk clean
 
-native:
-	$(MK) -f native.mk
+server:
+	$(MK) -f ./targets/server.mk
 
-clean_native:
-	$(MK) -f native.mk clean
+server_clean:
+	$(MK) -f ./targets/server.mk clean
 
 wasm:
-	$(MK) -f wasm.mk
+	$(MK) -f ./targets/wasm.mk
 
-clean_wasm:
-	$(MK) -f wasm.mk clean
+wasm_clean:
+	$(MK) -f ./targets/wasm.mk clean

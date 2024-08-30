@@ -1,0 +1,7 @@
+{
+	"baseUrl": "./src",
+    "paths": {
+      "site/*": ["src/__site/*"],
+      "lib/*": ["src/lib/*"]
+    },
+}
